@@ -1,0 +1,19 @@
+;Assignment 1 SYSC 3101
+;Author: Adam Staples
+;Exercice 2
+;Show that the gcd method is iterative and not recursive using the subsititution model.
+
+;Returns the greatest common denomintor on two numbers
+(define (greatestcd a b)
+ (if (= b 0)
+ a
+ (greatestcd b (remainder a b))))
+
+;(greatestcd 279 15)
+;(greatestcd 15 9)))
+;(greatestcd 9 6)))
+;(greatestcd 6 3))))
+;(greatestcd 3 0)))
+;3
+; this shows that the gcd process is not recursive as each step relies on a number passed by the last call
+; and it does not rely on a base case to calculate anything
