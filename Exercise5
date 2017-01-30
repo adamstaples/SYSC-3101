@@ -1,0 +1,18 @@
+;Assignment 1 SYSC 3101
+;Author: Adam Staples
+;Exercice 5
+;create a recursive function that computes f(n) as given in the assignment paper
+
+
+;recursive solution for f(n)
+(define (f-recursive n)
+  (cond
+    [(<= n 5) n]
+    [else (+ (f-recursive(- n 1)) (* 3 (f-recursive(- n 3))) (* 5 (f-recursive(- n 5))))]))
+
+
+;iterative solution for f(n)
+;(+ (f-recursive(- 7 1)) (* 3 (f-recursive(- 7 3))) (* 5 (f-recursive(- 7 5))))
+;(+ (f-recursive(- 6 1)) (* 3 (f-recursive(- 6 3))) (* 5 (f-recursive(- 6 5)))) (* 3 4) (* 5 2))
+;(+ (5) (* 3 3))) (* 5 1)))) (* 3 4) (* 5 2))
+
