@@ -1,0 +1,38 @@
+;Assignment 1 SYSC 3101
+;Author: Adam Staples
+;Exercice 3
+;Use subsititution model to tell if add-ab and sum-ab are iterative or recursive
+
+(define (increment a) (+ a 1))
+
+(define (decrement a) (- a 1))
+
+(define (add-ab a b)
+ (if (= a 0) b
+ (increment (add-ab (decrement a) b))))
+
+
+(define (sum-ab a b)
+ (if (= a 0) b
+ (sum-ab (decrement a) (increment b))))
+
+;(add-ab 4 5)
+;(+ (add-ab 3 5) 1)
+;(+ (+ (add-ab 2 5) 1) 1)
+;(+ (+ (+ (add-ab 1 5) 1) 1) 1)  
+;(+ (+ (+ (+ (add-ab 0 5) 1) 1) 1) 1)
+;(+ (+ (+ (+ 5 1) 1) 1) 1)
+;(+ (+ (+ 6 1) 1) 1)
+;(+ (+ 7 1) 1)
+;(+ 8 1)
+;9
+;add-ab is a recursive function as can be seen above
+
+;(sum-ab 4 5)
+;(sum-ab 3 6)
+;(sum-ab 2 7)
+;(sum-ab 1 8)
+;(sum-ab 0 9)
+;9
+
+;sum-ab is an iterative function as can be seen above.
