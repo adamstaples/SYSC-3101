@@ -1,0 +1,35 @@
+;Assignment 1 SYSC 3101
+;Author: Adam Staples
+;Exercice 4
+;use increment and decrement only to complete the functions and prove they are not recursive
+
+; iterate a number
+(define (increment a)
+  (+ a 1))
+
+; decrement a number
+(define (decrement a)
+  (- a 1))
+
+;add two numbers assuming that a is negative
+(define (add% a b)
+(if (= b 0) a
+(add% (increment a) (decrement b))))
+
+;add two numbers together assuming that b is a negative number
+(define (add-negative a b)
+  (if (= a 0) b
+ (add-negative (decrement a) (increment b))))
+
+;sum any two integers together
+(define (sum-of-integers a b)
+  (cond
+    [(< a 0) (add% a b)]
+    [else (add-negative a b)]))
+
+;(sum-of-integers 2 3)
+;(add-negative 2 3)
+;(add-negative 1 4)
+;(add-negative 0 5)
+;5
+;Uses same as type of method as the previous exercise part 2, as such it is not iterative
