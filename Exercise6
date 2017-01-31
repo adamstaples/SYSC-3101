@@ -1,0 +1,11 @@
+;Assignment 1 SYSC 3101
+;Author: Adam Staples
+;Exercice 6
+;sum all the odd digits in a number
+
+;Returns a number equal to the sum of all the odd digits in a single number
+(define (sum-odd-digits n) 
+  (cond
+    [(= n 0) 0]
+    [(= (remainder n 2) 0) (sum-odd-digits (/ (- n (remainder n 10)) 10))] 
+    [else (+ (sum-odd-digits (/ (- n (remainder n 10)) 10)) (remainder n 10))]))
