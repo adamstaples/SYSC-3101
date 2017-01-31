@@ -1,0 +1,11 @@
+;Assignment 1 SYSC 3101
+;Author: Adam Staples
+;Exercice 8
+;Return the quantity of a specific item in a container
+
+(define (count-of-items code type)
+  (cond 
+    [(= code 0) 0]
+    [else (cond
+            [(= (remainder (/ (- code (remainder code 10)) 10) 100) type) (+ (remainder code 10) (count-of-items (/ (- code (remainder code 1000)) 1000) type))]
+            [else (+ 0 (count-of-items (/ (- code (remainder code 1000)) 1000) type))])]))
