@@ -1,0 +1,19 @@
+;Assignment 1 SYSC 3101
+;Author: Adam Staples
+;Exercice 7
+;Use Simpsons Rule to find the aprox value of the integral with three arguements
+
+(define (integrate-cube a b n count)
+  (cond
+    [(= count n) (cube (+ a ( * n (calc-h a b n))))]
+    [(= count 0) (* (/ (calc-h a b n) 3) (+ (integrate-cube a b n (+ count 1)) (cube (+ a ( * count (calc-h a b n))))))]
+    [(= (remainder count 2) 0)(+ (integrate-cube a b n (+ count 1)) (* (cube (+ a ( * count (calc-h a b n)))) 2))]
+    [else (+ (integrate-cube a b n (+ count 1)) (* (cube (+ a ( * count (calc-h a b n)))) 4))]))
+
+
+
+(define (cube x)
+  (* x x x))
+
+(define (calc-h a b n)
+  (/ (- b a) n))
