@@ -1,0 +1,23 @@
+1.	Exercise 1:
+  a.	Correct lambda
+  b.	No arguments, so its an incorrect lambda
+  c.	Correct lambda
+  d.	Technically it is correct, though the y argument is never used and therefore useless
+  e.	Incorrect lambda (need more brackets yo)
+  
+  
+2.	Exercise 2:
+  a.	((lambda (x y) (+ x (* x y))) 1 2)
+    i.	(+ 1 (* 1 2)) = (+ 1 2) = 3
+  b.	((lambda (x y)
+         (+ x 
+            ((lambda (z) 
+                  (+ (* 3 z) (/ 1 z))) 
+            (* y y)))) 
+        1 2)
+     i.	(+ 1 ( + (* 3 4)  (/ 1 4)) = (+ 1 (+ 12 0.25) = (+ 1 12.25) = 13.25
+     
+     
+3.	Exercise 3:
+  a.	25 and 25
+  b.	10
