@@ -1,0 +1,40 @@
+#lang racket
+;; Lab 3 SYSC 3101
+;; Due: Feb 10th 2017
+;; Author: Adam Staples
+
+;;Exercise 1 through 3 are included in a word document that will be submitted via culearn
+
+;;Exercise 4
+;; Create 3 functions that use lambda and the (build-list n f) function to build lists
+;;(list 0 .. (- n 1))
+(build-list 5 (lambda (x) (+ (- x 1) 1)))
+
+;;(list 1 1/2 .. 1/n)
+(build-list 5 (lambda (x) (/ 1 (+ 1 x))))
+
+;;(list 2 4 6 ... (n even))
+(build-list 5 (lambda (x) (* 2 x)))
+
+;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;;Exercise 5
+;;Define (cubic a b c) that returns a procedure (lambda) that solves it as a cubic function (x^3 etc..)
+(define (cubic a b c)
+  (lambda (x) (+ (* x x x) (* a (* x x)) (* b x) c)))
+
+;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;;Exercise 6
+;;Part a: define a function that returns the quadratic roots of a quadratic function with no lambda or let
+(define (quadratic-roots a b c)
+  (list (/ (+ (- 0 b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a)) (/ (- (- 0 b) (sqrt (- (* b b) (* 4 a c)))) (* 2 a))))
+
+;;Part b: define a function taht uses a nester procedure to calculate the discriminate and then retrusn the roots
+;;        of a quadratic equation
+(define (quadratic-roots-2 a b c)
+  (define (discriminant a b c)
+    (sqrt (- (* b b) (* 4 a c))))
+  (list (/ (+ (- 0 b) (discriminant a b c)) (* 2 a)) (/ (- (- 0 b) (discriminant a b c)) (* 2 a))))
+
+;;Part c: As part b but use a let statement instead of a nested procedure
+(define (quadratic-roots-3 a b c)
+  (let ([d (sqrt (- (* b b) (* 4 a c)))]) (list (/ (+ (- 0 b) d) (* 2 a)) (/ (- (- 0 b) d) (* 2 a)))))
